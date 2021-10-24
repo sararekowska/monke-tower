@@ -64,6 +64,12 @@ graph_offset = Vector2( -305.849, 0 )
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.9, 0.9 )
+smoothing_enabled = true
+smoothing_speed = 3.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2.38379 )
 shape = SubResource( 1 )
@@ -73,7 +79,7 @@ position = Vector2( 0.944931, -10.7093 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 2
-frame = 4
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )

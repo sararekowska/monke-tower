@@ -1,12 +1,18 @@
 extends Node2D
+onready var player = get_node("/root/world/player")
+var limit = 700
+
+func _process(delta):
+	if player.position.y < limit:
+		limit -= 90
+		platform_gen(limit-300, (randi() % 400 + 300))
+		print(limit)
 
 func _ready():
 	randomize()
-	for n in 4:
-		platform_gen(300 - 90*n, (randi() % 500 + 300))
 
 func platform_gen(height, x):
-	for n in (randi() % 6 + 2):
+	for n in (randi() % 6 + 3):
 		var block = load("res://platform.tscn")
 		var block_instance = block.instance()
 		block_instance.set_name("block")
