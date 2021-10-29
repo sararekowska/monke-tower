@@ -19,6 +19,7 @@ func _physics_process(delta):
 	else:
 		if velocity.y < 0:
 			if Input.is_action_pressed("jump"):
+				#state_machine.travel("jump")
 				grav_coeff = 0.7
 			else:
 				grav_coeff = 1
@@ -28,11 +29,21 @@ func _physics_process(delta):
 
 
 	if Input.is_action_pressed("right"):
-		get_node("Sprite").set_flip_h(false)
-		velocity.x = min(velocity.x+acc, max_speed)
+		if is_on_floor():
+			state_machine.travel("walk")
+			get_node("Sprite").set_flip_h(false)
+			velocity.x = min(velocity.x+acc, max_speed)
+		else:
+			get_node("Sprite").set_flip_h(false)
+			velocity.x = min(velocity.x+acc, max_speed)
 	elif Input.is_action_pressed("left"):
-		get_node("Sprite").set_flip_h(true)
-		velocity.x = max(velocity.x-acc, 1-max_speed)
+		if is_on_floor():
+			state_machine.travel("walk")
+			get_node("Sprite").set_flip_h(true)
+			velocity.x = max(velocity.x-acc, 1-max_speed)
+		else:
+			get_node("Sprite").set_flip_h(true)
+			velocity.x = max(velocity.x-acc, 1-max_speed)
 	else:
 		velocity.x = 0
 		
