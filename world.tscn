@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://grass.png" type="Texture" id=2]
+[ext_resource path="res://sprites/grass.png" type="Texture" id=2]
+[ext_resource path="res://ParallaxBackground.gd" type="Script" id=3]
 [ext_resource path="res://platform_generator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://platform_generator.gd" type="Script" id=5]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -34,7 +36,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="world" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 521.399, 169.888 )
+position = Vector2( 446.791, 383.345 )
 z_index = 1
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -46,3 +48,8 @@ tile_data = PoolIntArray( 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0
 
 [node name="platform_generator" parent="." instance=ExtResource( 4 )]
 script = ExtResource( 5 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
+scroll_base_scale = Vector2( 0.1, 0.1 )
+scroll_ignore_camera_zoom = true
+script = ExtResource( 3 )
