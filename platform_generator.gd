@@ -2,6 +2,7 @@ extends Node2D
 onready var player = get_node("/root/world/player")
 var wall_block = load("res://wall_block.tscn")
 var block = load("res://platform.tscn")
+var banana = load("res://banana.tscn")
 var limit = 700
 
 func _process(delta):
@@ -19,6 +20,11 @@ func platform_gen(height, x):
 		add_child(block_instance)
 		block_instance.position.x = x + 32*n
 		block_instance.position.y = height 
+		
+		var banana_instance = banana.instance()
+		add_child(banana_instance)
+		banana_instance.position.x = x + 32*n
+		banana_instance.position.y = height - 32
 
 func wall_gen(height):
 	for n in 3:

@@ -6,6 +6,7 @@ export var acc = 20
 var max_speed = 200
 var jump_power = -230
 var grav_coeff = 1
+var score = 0
 
 func _physics_process(delta):
 	move_and_slide(velocity, Vector2(0, -1))
@@ -19,7 +20,6 @@ func _physics_process(delta):
 	else:
 		if velocity.y < 0:
 			if Input.is_action_pressed("jump"):
-				#state_machine.travel("jump")
 				grav_coeff = 0.7
 			else:
 				grav_coeff = 1
@@ -51,4 +51,12 @@ func _physics_process(delta):
 	
 
 func _process(delta):
-	pass
+	var ScoreCount = get_parent().get_node("score/CanvasLayer/Control/RichTextLabel")
+	ScoreCount.text = "SCORE: " + str(score)
+
+
+func _on_banana_body_entered(body):
+	score += 1
+	print(score)
+
+
