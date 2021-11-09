@@ -14,18 +14,25 @@ func _process(delta):
 func _ready():
 	randomize()
 
+var random_platform_width = (randi() % 6 + 3)
+
 func platform_gen(height, x):
-	for n in (randi() % 6 + 3):
+	for n in random_platform_width:
 		var block_instance = block.instance()
 		add_child(block_instance)
 		block_instance.position.x = x + 32*n
 		block_instance.position.y = height 
 		
-		var banana_instance = banana.instance()
-		add_child(banana_instance)
-		banana_instance.position.x = x + 32*n
-		banana_instance.position.y = height - 32
-
+		var banana_spawn = (randi() % 2)
+		var banana_position = (randi() % random_platform_width) * 32
+		
+		if banana_spawn == 1:
+			var banana_instance = banana.instance()
+			add_child(banana_instance)
+			banana_instance.position.x = x + banana_position
+			banana_instance.position.y = height - 32
+			
+		
 func wall_gen(height):
 	for n in 3:
 		var wall_block_left = wall_block.instance()
