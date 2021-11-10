@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/grass.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AovelSansRounded-rdDL.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://banana.tscn" type="PackedScene" id=8]
+[ext_resource path="res://camera.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -43,6 +44,7 @@ font_data = ExtResource( 7 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 446.791, 383.345 )
+scale = Vector2( 1, 1 )
 z_index = 1
 
 [node name="banana" parent="." instance=ExtResource( 8 )]
@@ -80,3 +82,8 @@ text = "SCORE: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511.528, 299.861 )
+current = true
+script = ExtResource( 9 )

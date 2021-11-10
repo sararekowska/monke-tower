@@ -66,12 +66,12 @@ animation = "jump"
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
 [sub_resource type="AnimationNodeStateMachine" id=11]
 states/idle/node = SubResource( 5 )
@@ -80,7 +80,7 @@ states/jump/node = SubResource( 6 )
 states/jump/position = Vector2( 326, 150 )
 states/walk/node = SubResource( 7 )
 states/walk/position = Vector2( 167.151, 47 )
-transitions = [ "walk", "jump", SubResource( 14 ), "jump", "idle", SubResource( 15 ), "walk", "idle", SubResource( 16 ) ]
+transitions = [ "walk", "jump", SubResource( 8 ), "jump", "idle", SubResource( 9 ), "walk", "idle", SubResource( 10 ) ]
 start_node = "idle"
 graph_offset = Vector2( -305.849, 0 )
 
@@ -88,12 +88,6 @@ graph_offset = Vector2( -305.849, 0 )
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.9, 0.9 )
-smoothing_enabled = true
-smoothing_speed = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.198425, -19.6468 )
@@ -104,7 +98,6 @@ position = Vector2( 1.73863, -27.9723 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 3
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
