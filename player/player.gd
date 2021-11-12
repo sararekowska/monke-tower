@@ -7,14 +7,14 @@ var max_speed = 200
 var jump_power = -230
 var grav_coeff = 1
 var score = 0
+onready var ScoreCount = get_parent().get_node("CanvasLayer/Control/RichTextLabel")
 
 func _ready():
-	var banananode = get_parent().find_node("banana")
-	banananode.connect("player", self, "_on_banana_enter")
+	var banana_node = get_parent().find_node("banana")
+	banana_node.connect("player", self, "_on_banana_enter")
 
 func _on_banana_enter():
 	score += 1
-	var ScoreCount = get_parent().get_node("CanvasLayer/Control/RichTextLabel")
 	ScoreCount.text = "SCORE: " + str(score)	
 
 func _physics_process(delta):

@@ -24,12 +24,11 @@ func platform_gen(height, x):
 		block_instance.position.y = height 
 		
 		var banana_spawn = (randi() % 2)
-		var banana_position = (randi() % random_platform_width) * 32
 		
 		if banana_spawn == 1:
 			var banana_instance = banana.instance()
 			add_child(banana_instance)
-			banana_instance.position.x = x + banana_position
+			banana_instance.position.x = x + 32*n
 			banana_instance.position.y = height - 32
 			
 		
