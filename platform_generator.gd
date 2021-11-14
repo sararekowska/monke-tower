@@ -14,10 +14,9 @@ func _process(delta):
 func _ready():
 	randomize()
 
-var random_platform_width = (randi() % 6 + 3)
 
 func platform_gen(height, x):
-	for n in random_platform_width:
+	for n in (randi() % 6 + 3):
 		var block_instance = block.instance()
 		add_child(block_instance)
 		block_instance.position.x = x + 32*n

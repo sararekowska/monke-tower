@@ -92,7 +92,7 @@ current = true
 script = ExtResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="Camera2D"]
-position = Vector2( -3.06952, 308.912 )
+position = Vector2( 0.705993, 367.432 )
 __meta__ = {
 "_edit_group_": true
 }
