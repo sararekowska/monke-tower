@@ -33,7 +33,7 @@ func _physics_process(delta):
 			else:
 				grav_coeff = 1
 		else:
-			grav_coeff = 2.5
+			grav_coeff = 4.5
 		velocity.y += gravity*delta*grav_coeff
 
 
@@ -55,4 +55,10 @@ func _physics_process(delta):
 			velocity.x = max(velocity.x-acc, 1-max_speed)
 	else:
 		velocity.x = 0
+		
+
+
+func _on_Area2D_body_entered(body):
+	if (body.get_name() == "player"):
+		get_tree().change_scene("res://restart.tscn")
 		

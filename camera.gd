@@ -5,5 +5,5 @@ func _ready():
 	pass 
 
 func _process(delta):
-	self.offset.y += speed
+	self.position.y += speed
 
