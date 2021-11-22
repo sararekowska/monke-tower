@@ -6,7 +6,7 @@ var banana = load("res://banana.tscn")
 var limit = 700
 
 func _process(delta):
-	if player.position.y < limit:
+	if player.position.y < limit+200:
 		limit -= 90
 		platform_gen(limit-300, (randi() % 400 + 300))
 		wall_gen(limit-300)
